@@ -144,38 +144,32 @@
                     <div class="sidebar-brand">
                         <a href="dashboard">SES</a>
                     </div>
-                    <div class="sidebar-brand sidebar-brand-sm">
-                        <a href="/">SES</a>
-                    </div>
-                    <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-                        <a href="dashboard" class="btn btn-primary btn-lg btn-block btn-icon-split">
-                            <i class="fas fa-rocket"></i> Dashboard
-                        </a>
-                        <a href="student_details" class="btn btn-primary btn-lg btn-block btn-icon-split">
-                            <i class="fas fa-rocket"></i> Student Details
-                        </a>
-                        <a href="new_student" class="btn btn-primary btn-lg btn-block btn-icon-split">
-                            <i class="fas fa-rocket"></i> New Student
-                        </a>
-                        <a href="staff" class="btn btn-primary btn-lg btn-block btn-icon-split">
-                            <i class="fas fa-rocket"></i> Staff
-                        </a>
-                        <a href="staff_register" class="btn btn-primary btn-lg btn-block btn-icon-split">
-                            <i class="fas fa-rocket"></i> Staff Register
-                        </a>
-                        <a href="" class="btn btn-primary btn-lg btn-block btn-icon-split">
-                            <i class="fas fa-rocket"></i> Documentation
-                        </a>
-                        <a href="" class="btn btn-primary btn-lg btn-block btn-icon-split">
-                            <i class="fas fa-rocket"></i> Documentation
-                        </a>
-                        <a href="" class="btn btn-primary btn-lg btn-block btn-icon-split">
-                            <i class="fas fa-rocket"></i> Documentation
-                        </a>
-                        <a href="" class="btn btn-primary btn-lg btn-block btn-icon-split">
-                            <i class="fas fa-rocket"></i> Documentation
-                        </a>
-                    </div>
+                    <ul class="sidebar-menu">
+                        <li><a class="nav-link" href="dashboard"><i class="far fa-square"></i> <span>Dashboard</span></a></li>
+                        <li class="menu-header">Student</li>
+                        <li class="dropdown">
+                            <a href="student_details" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Student</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link" href="student_details">Student details</a></li>
+                                <li><a class="nav-link" href="new_student">Create New Student</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-header">Staff</li>
+                        <li class="dropdown">
+                          <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Staff</span></a>
+                          <ul class="dropdown-menu">
+                            <li><a class="nav-link" href="staff_register">Teacher Register</a></li>
+                            <li><a class="nav-link" href="staff">staff</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
+                          <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Course</span></a>
+                          <ul class="dropdown-menu">
+                            <li><a class="nav-link" href="course_add">Course Add</a></li>
+                            <li><a class="nav-link" href="course_details">Course details</a></li>
+                          </ul>
+                        </li>         
+                    </ul>
                 </aside>
             </div>
             {% block content %}{% endblock %}
