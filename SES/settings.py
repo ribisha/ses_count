@@ -96,9 +96,11 @@ USE_TZ = True
 
 
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -142,7 +144,7 @@ JAZZMIN_SETTINGS = {
     "related_modal_active": False,
     "changeform_format_overrides": {},
     "fieldsets_formset_override": False,
-    "changeform_format": "horizontal_tabs",  # horizontal_tabs, vertical_tabs, or single_column
+    "changeform_format": "horizontal_tabs", 
     "exclude_django_admin_actions": False,
     "custom_search_fields": {},
     "custom_sortable_fields": {},

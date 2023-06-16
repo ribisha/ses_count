@@ -1,0 +1,274 @@
+{% extends 'dashbase.html' %}
+{% load static %}
+{% block content %}
+<div class="main-content">
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for i in sw_profile %}
+        <div class="col-md-4">
+            <br><br>
+            <div class="profile-img">
+                <a href="#" class="font-weight-600"><img src="{{i.photo.url}}" alt="avatar" style="width:150px;" class="rounded-3"></a>
+            </div><br>
+            <div class="profile-head">
+                <h5>Name: {{i.student_name}}</h5>
+            </div>
+        </div>
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                    <div class="card-header text-center"><b>Personal Details</b></div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <label>Full Name</label>
+                            </div>
+                            <div class="col-6">
+                                <p>{{i.student_name}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-6">
+                                <label>Email</label>
+                            </div>
+                            <div class="col-6">
+                                <p>{{i.email}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-6">
+                                <label>Contact Number</label>
+                            </div>
+                            <div class="col-6">
+                                <p>{{i.contact_number}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-6">
+                                <label>Date Of Birth</label>
+                            </div>
+                            <div class="col-6">
+                                <p>{{i.date_of_birth}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-6">
+                                <label>Gender</label>
+                            </div>
+                            <div class="col-6">
+                                <p>{{i.gender}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-6">
+                                <label>Religion</label>
+                            </div>
+                            <div class="col-6">
+                                <p>{{i.religion}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-6">
+                                <label>Aadhar</label>
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="font-weight-600"><img src="{{i.Aadhar.url}}" alt="avatar" width="50" class="rounded-3"></a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-6">
+                                <label>Signature</label>
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="font-weight-600"><img src="{{i.Signature.url}}" alt="avatar" width="50" class="rounded-3"></a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                <div class="card-header text-center"><b>Address and Guardian</b></div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <label>Address</label>
+                        </div>
+                        <div class="col-6">
+                            <p>{{i.address}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-6">
+                            <label>State</label>
+                        </div>
+                        <div class="col-6">
+                            <p>{{i.state}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-6">
+                            <label>City</label>
+                        </div>
+                        <div class="col-6">
+                            <p>{{i.city}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-6">
+                            <label>Pincode</label>
+                        </div>
+                        <div class="col-6">
+                            <p>{{i.pincode}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-6">
+                            <label>Guardian Name</label>
+                        </div>
+                        <div class="col-6">
+                            <p>{{i.guardianname}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-6">
+                            <label>Guardian Contact Number</label>
+                        </div>
+                        <div class="col-6">
+                            <p>{{i.guardian_contact_number}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-6">
+                            <label>Relationship Of Guardian</label>
+                        </div>
+                        <div class="col-6">
+                            <p>{{i.relationship_of_guardian}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-6">
+                            <label>Signature Of Guardian</label>
+                        </div>
+                        <div class="col-6">
+                                <a href="#" class="font-weight-600"><img src="{{i.signacher_of_guardian.url}}" alt="avatar" width="50" class="rounded-3"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <div class="card-header text-center"><b>SSLC</b></div>
+            <div class="card-body align-center">
+                <div class="row">
+                    <div class="col-6">
+                        <label>School Name</label>
+                    </div>
+                    <div class="col-6">
+                        <p>{{i.school_name}}</p>
+                    </div>
+                </div><hr>
+                <div class="row">
+                    <div class="col-6">
+                        <label>School Location</label>
+                    </div>
+                    <div class="col-6">
+                        <p>{{i.school_location}}</p>
+                    </div>
+                </div><hr>
+                <div class="row">
+                    <div class="col-6">
+                        <label>SSLC Total Percentage</label>
+                    </div>
+                    <div class="col-6">
+                        <p>{{i.sslc_total_persantage}}</p>
+                    </div>
+                </div><hr>
+                <div class="row">
+                    <div class="col-6">
+                        <label>SSLC Passout Year</label>
+                    </div>
+                    <div class="col-6">
+                        <p>{{i.sslc_pass_out_year}}</p>
+                    </div>
+                </div><hr>
+                <div class="row">
+                    <div class="col-6">
+                        <label>SSLC Certificate Upload</label>
+                    </div>
+                    <div class="col-6">
+                        <a href="#" class="font-weight-600"><img src="{{i.sslc_certificate_upload.url}}" alt="avatar" width="50" class="rounded-3"></a>
+
+                    </div>
+                </div><hr>
+            </div>
+            </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card-header text-center"><b>Plus Two</b></div>
+                    <div class="card-body align-center">
+                        <div class="row">
+                            <div class="col-6">
+                                <label>Higher Secondary School Name</label>
+                            </div>
+                            <div class="col-6">
+                                <p>{{i.higher_secondary_chool_name}}</p>
+                            </div>
+                        </div><hr>
+                        <div class="row">
+                            <div class="col-6">
+                                <label>Higher Secondary School Location</label><br/>
+                            </div>
+                            <div class="col-6">
+                                <p>{{i.higher_secondary_school_location}}</p>
+                            </div>
+                        </div><hr>
+                        <div class="row">
+                            <div class="col-6">
+                                <label>Higher Secondary Total Mark</label><br/>
+                            </div>
+                            <div class="col-6">
+                                <p>{{i.higher_secondary_total_mark}}</p>
+                            </div>
+                        </div><hr>
+                        <div class="row">
+                            <div class="col-6">
+                                <label>Higher Secondary Passout Year</label>
+                            </div>
+                            <div class="col-6">
+                              <p>{{i.higher_secondary_pass_out_year}}</p>
+                             </div>
+                        </div><hr>
+                        <div class="row">
+                            <div class="col-6">
+                                <label>Higher Secondary Certificate Upload</label>
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="font-weight-600"><img src="{{i.higher_secondary_certificate_upload.url}}" alt="avatar" width="50" class="rounded-3"></a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </form>
+</div>
+
+
+
+
+
+  {% endblock %}

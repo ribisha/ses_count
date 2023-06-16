@@ -23,12 +23,12 @@ class StudentApplicationForm(forms.ModelForm):
         message="Enter Valid Email Address")],
         widget=forms.TextInput(attrs={'placeholder':'Email'})
     )
-    def clean_email(self):
-        email = self.cleaned_data.get('email')
-        for i in StudentApplication.objects.all():
-            if i.email == email:
-                raise forms.ValidationError('Denaie! ' + email + ' is already register')
-        return email
+    # def clean_email(self):
+    #     email = self.cleaned_data.get('email')
+    #     for i in StudentApplication.objects.all():
+    #         if i.email == email:
+    #             raise forms.ValidationError('Denaie! ' + email + ' is already register')
+    #     return email
     class Meta:
         model = StudentApplication
         fields = "__all__"

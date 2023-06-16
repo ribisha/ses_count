@@ -47,3 +47,4 @@ class StudentApplication(models.Model):
     higher_secondary_certificate_upload= models.FileField(upload_to ='HS_certificate')
     DisplayFields = ['student_name','email','contact_number','date_of_birth','gender','religion']
     SearchableFields = ['student_name','email','contact_number','date_of_birth','gender','religion']
+    accepted = models.BooleanField(default=False)

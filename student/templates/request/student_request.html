@@ -1,0 +1,69 @@
+{% extends 'dashbase.html' %}
+{% load static %}
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<div class="main-content">
+    <section class="section">
+        <div class="section-body">
+            <br><br><br>
+            <div class="card">
+                <div class="card-header">
+                    <h4>Request Table</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-md">
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Action</th>
+                                <th>Details</th>
+                            </tr>
+                            {% for i in st_request %}
+                            <form action="{% url 'student_accept' st_id=i.id %}" method="post">
+                                {% csrf_token %}
+                                    <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ i.student_name }}</td>
+                                    <td>{{ i.contact_number }}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete" >Reject</button>
+                                        <button type="submit" class="btn btn-success" id="swal-1">Accept</button>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'student_waiting_profile' i.id %}" class="btn btn-primary">Detail</a>
+                                    </td>
+                                </tr>
+                            </form>
+                            {% endfor %}
+                        </table> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- ============================MODEL POPUP============================ -->
+    <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title fs-5" id="exampleModalLabel"><i class="fas fa-exclamation-triangle"></i>&nbsp;&nbsp;&nbsp;&nbsp;<span></span></h6>
+                    <button type="button" class="btn btn-icon btn-danger" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <span class="text-danger"><i class="fas fa-exclamation-triangle icon-large""></i><style>.icon-large {font-size: 4em;}</style></span>
+                    <div class="mt-4 text-danger" style="height: 50px;">Are you sure you want to reject?</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
+                    <button type="button" class="btn btn-danger">Reject</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================ENDMODEL============================ -->
+</div>
+{% endblock %}

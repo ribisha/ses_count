@@ -1,0 +1,122 @@
+{% extends 'dashbase.html' %}
+{% load static %}
+{% block content %}
+<div class="main-content">
+    <div class="row">
+        <div class="col">
+            <div class="container">
+                <div class="padding">
+                    <div class="font">
+                        <div class="top">
+                            <img src="{{student_id.photo.url}}">
+                        </div>
+                        <div class="bottom">
+                            <p>{{student_id.student_name}}</p>
+                            <p class="desi">Soon</p>
+                            <p class="no">{{student_id.contact_number}}</p>
+                            <p class="no">{{student_id.date_of_birth}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="back">
+                    <h1 class="Details">information</h1>
+                    <hr class="hr">
+                    <div class="details-info">
+                        <p><b>Email : </b></p>
+                        <p>{{student_id.email}}</p>
+                        <p><b>Addres: </b></p>
+                        <p>{{student_id.address}}</p>
+                        <p><b>State:</b></p>
+                        <p>{{student_id.state}}</p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+        <div class="col">
+            <br><br>
+            <div class="card card-danger">
+                <div class="card-header">
+                    <h4></h4>
+                </div>
+                <div class="card-body">
+                    <button type="button" class="btn btn-outline-success btn-lg btn-block" >Download</button>
+                    <button type="button" class="btn btn-outline-primary btn-lg btn-block">Print</button>
+                    <button type="button" class="btn btn-outline-warning btn-lg btn-block" data-toggle="modal" data-target="#Edit">Edit</button>
+                    <button type="button" class="btn btn-outline-danger btn-lg btn-block" data-toggle="modal" data-target="#Delet">Delete</button>
+                    <button type="button" class="btn btn-outline-secondary btn-lg btn-block" >History</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- =====================DOWNLOAD==================== -->
+<div class="modal fade" id="Edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-edit"></i><span>&nbsp;&nbsp;&nbsp;&nbsp; Edit</h5>
+                <button type="button" class="btn btn-icon btn-warning" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <span class="text-warning"><i class="fas fa-edit icon-large"></i><style>.icon-large {font-size: 4em;}</style></span>
+                <div class="mt-4 text-secondary" style="height: 50px;">Are you sure you want to Edit?</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-warning">Edit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- =====================ENDDOWNLOAD==================== -->
+<!-- =======================DELETE=================== -->
+<div class="modal fade" id="Delet" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-trash-alt"></i>&nbsp;&nbsp;&nbsp;&nbsp; Delete</h5>
+            <button type="button" class="btn btn-icon btn-danger" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body text-center">
+            <span class="text-danger"><i class="fas fa-trash-alt icon-large"></i><style>.icon-large {font-size: 4em;}</style></span>
+            <div class="mt-4 text-danger" style="height: 50px;">Are you sure you want to Delete?</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a href="#" type="button" class="btn btn-danger">Delete</a>
+        </div>
+      </div>
+    </div>
+</div>
+<!-- ======================ENDDELETE================= -->
+
+<style>
+.top img{height: 100px;width: 100px;background-color: #e6ebe0;border-radius: 10px;position: absolute;top:60px;left: 75px;}
+.container {height: 70vh;display: flex;align-items: center;justify-content: center;}
+.font{height: 375px;width: 250px;position: relative;border-radius: 10px;}
+.top{height: 30%;width: 100%;background-color: #8338ec;position: relative;z-index: 5;border-top-left-radius: 15px;border-top-right-radius: 15px;}
+.bottom{height: 70%;width: 100%;background-color: rgb(216, 216, 216);position: absolute;border-bottom-left-radius: 15px;border-bottom-right-radius: 15px;}
+.topimg{height: 100px;width: 100px;background-color: #e6ebe0;border-radius: 10px;position: absolute;top:60px;left: 75px;}
+.bottom p{position: relative;top: 60px;text-align: center;text-transform: capitalize;font-weight: bold;font-size: 20px;text-emphasis: spacing;}
+.bottom .desi{font-size:12px;color: grey;font-weight: normal;}
+.bottom .no{font-size: 15px;font-weight: normal;}
+.back{height: 375px;width: 250px;border-radius: 10px;background-color: #8338ec;}
+.Details {color: white;text-align: center;padding: 10px;font-size: 25px;}
+.details-info{color: white;text-align: left;padding: 5px;line-height: 20px;font-size: 16px;text-align: center;margin-top: 20px;line-height: 22px;}
+.logo {height: 40px;width: 150px;padding: 40px;}
+.logo img{height: 100%;width: 100%;color: white ;}
+.padding{padding-right: 20px;}
+@media screen and (max-width:400px)
+{.container{height: 130vh;}
+.container .front{margin-top: 50px;}}
+@media screen and (max-width:600px)
+{.container{height: 130vh;}
+.container .front{margin-top: 50px;}}
+</style>
+{% endblock %}

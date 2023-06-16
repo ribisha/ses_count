@@ -1,0 +1,35 @@
+{% extends 'dashbase.html' %}
+{% load static %}
+{% block content %}
+<div class="main-content">
+    <section class="section">
+        <br><br><br>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <br><br>
+                        <center>
+                            <div style="text-align: center; background-color: #6777ef; padding: 20px; width: 500px;">
+                                <h1 style="font-size: 11px; color: white;">UPDATE NOW</h1>
+                            </div>
+                        </center>
+                        <br><br>
+                        <center>
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="form-group">   
+                                    <input type="text" class="form-control" name="course_name" required style="width: 500px; height: 40px; font-size: 14px;" value="{{ course_details.course_name }}">
+                                </div>
+                                <div class="card-footer text-center">
+                                    <button type="submit" class="btn btn-lg btn-primary">Update</button>
+                                </div>
+                            </form>                            
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
